@@ -109,7 +109,8 @@ Which will open and print the flag
 
 The GBU debugger (GDB) __"is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, Assembly, C, C++, D, Fortran, Haskell, Go, Objective-C, OpenCL C, Modula-2, Pascal, Rust, and partially others. It detects problems in a program while letting it run and allows users to examine different registers."__
 
-We can use this program to analyse the running code. We can run the `info func` command in GDB to expose all of the memory addresses of functions loaded into memory during that instance of the programs execution.
+We can use this program to analyse the running code. We can run the `info func` command in GDB to expose all of the memory addresses of functions loaded into memory during that instance of the programs execution. You first need to run `gdb <your-program-path>` to execute your program within gdb. After that the `info func` command will allow you to see running details.
+
 ![image](https://github.com/user-attachments/assets/e999ebd2-6408-4d72-bc12-f27064fdecbb)
 
 Notice, we can see the win function here at memory address: 0x00005555555552a7
@@ -131,7 +132,31 @@ Now that we we have calculated the offset, we can run the program again and retr
 
 Hooray!
 
-`picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_a267144a}`
+__`picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_a267144a}`__
 
-Resources used:
+Applications used during CTF:
+
+-Kali Linux (OS)
+
+-Mozilla Firefox (Web Browser)
+
+-Visual Studio Code
+
+-Python3
+
+-GNU's GDB
+
+Core sources of information:
+
+James Lyne's https://www.youtube.com/watch?v=V9lMxx3iFWU
+
+  - Explanation of debugging and GDB analysis
+  - 
+MIT GDB documentation https://web.mit.edu/gnu/doc/html/gdb_10.html
+
+  - General overview of GDU usage and functionality
+  - 
+ChatGPT https://chatgpt.com/
+
+  - Assistance with formatting additions and subtractions of byte strings in Python
 
