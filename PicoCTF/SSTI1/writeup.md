@@ -122,7 +122,7 @@ Sending: __{{app.__class__.__mro__}}__
 
 - Returns: (<class 'jinja2.runtime.Undefined'>, <class 'object'>)
 
-When sending: __{{app.__class__.__mro__[1].__subclasses__()}}__, I received all the subclasses again, This time I put this into my IDE and replaced all commas with newlines to better visualise this set.
+When sending: __{{app.__class__.__mro__[1].__subclasses__()}}__, I received all the subclasses again. However, this time I put it into my IDE and replaced all commas with newlines to better visualise it.
 ![image](https://github.com/user-attachments/assets/d53d70c7-0f86-4da5-a79a-df0aafcc8655)
 
 After querying ChatGPT on where I should begin my investigations regarding vulnerable subclasses, I decided to hone in on <class 'subprocess.Popen'> and returned this by indexing the above function with [356]. 
