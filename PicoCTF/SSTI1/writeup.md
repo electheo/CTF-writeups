@@ -43,11 +43,11 @@ Following along with the portswigger article, and the indentify section, we dete
 
 Now that we know it is Jinja2, I found https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/ to be useful for specifics regarding exploitation of this framework. Similarly, the Jinja docs were useful for referencing what the OnSecurity aricle was discussing: https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment
 
-Sending: __{{global_name.__class__.__mro__}}__
+Sending: {{global_name.__class__.__mro__}}
 
 - Returns: (<class 'jinja2.runtime.Undefined'>, <class 'object'>)
 
-Sending: __{{global_name.__class__.__base__}}__
+Sending: {{global_name.__class__.__base__}}
 
 - Returns: <class 'object'>
 
