@@ -100,7 +100,7 @@ with only specify the / directory, I can see the file structure for the machine:
 ![image](https://github.com/user-attachments/assets/543f62ec-0f89-440f-86e3-709b57bde680)
 
 When sending the this command with `ls -la` command, we can see the priviliges for the different directories, notice that root doesn't have many permissions
-![image](https://github.com/user-attachments/assets/0ab4744a-1bcb-47c5-8a48-59bdd525466e)
+![image](https://github.com/user-attachments/assets/f8f82b2b-abd2-4869-a107-506b34554c23)
 
 from: https://linuxhandbook.com/linux-file-permissions/ this means that only an administrator can view this directory:
 ![image](https://github.com/user-attachments/assets/eb1aabfa-1dc3-4636-9a92-c1d7aeb56c61)
