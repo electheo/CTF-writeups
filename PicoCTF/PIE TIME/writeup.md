@@ -80,4 +80,28 @@ int main() {
 ```  
 </details>
 
+The user is prompted to enter a memory address via the lines:
+```
+  printf("Enter the address to jump to, ex => 0x12345: ");
+  scanf("%lx", &val);
+```
+
+Afterwards, the memory address taken from user input is set to be the pointer to a function named foo. This functionally means that as the user we can define the memory location of the function we are trying to call.
+
+We ultimately want to call the function:
+```
+int win() {
+  FILE *fptr;
+  char c;
+
+  printf("You won!\n");
+  // Open file
+  fptr = fopen("flag.txt", "r");
+  if (fptr == NULL)
+  {
+      printf("Cannot open file.\n");
+      exit(0);
+  }
+```
+Which will open and print the flag
 <h2></h2>
