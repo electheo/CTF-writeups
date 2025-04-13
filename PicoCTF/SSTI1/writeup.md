@@ -31,7 +31,7 @@ After futher experimentation, and now understanding that string formatting is of
 
 ![image](https://github.com/user-attachments/assets/2b0066c4-0e89-49c9-b0a3-d1c87fede2b3)
 
-When placing any plaintext within these braces, the error dissapears and completely blank HTML page is returned when the form is executed.
+When placing any plaintext within these braces, the error dissapears and a completely blank HTML page is returned when the form is executed.
 
 Based on the error returned, i thought it might be possible that this application is a Flask application, see: https://www.digitalocean.com/community/tutorials/how-to-handle-errors-in-a-flask-application based searching the error text in Google.
 
@@ -40,8 +40,28 @@ To confirm server side execution ability, we sent {{7*7}} which resulted in the 
 Following along with the portswigger article, and the indentify section, we determine that this is framework is likely using Jinja2 because "The payload {{7*'7'}} returns 49 in Twig and 7777777 in Jinja2."
 ![image](https://github.com/user-attachments/assets/1a2aee31-7607-4b5e-916c-16786617ba99)
 
-
+<h2> The exploit </h2>
 Now that we know it is Jinja2, I found https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/ to be useful for specifics regarding exploitation of this framework. Similarly, the Jinja docs were useful for referencing what the OnSecurity aricle was discussing: https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment
+
+This exploit relies on the fact the formatted strings can allow for the interpretation and execution of code on the server. This is possible when developers leave user-definable strings in their template files unsantized and without guardrails. In our context, this is as simple as inputting something to a form and having it printed on the website.
+
+See below a snippet of the code, taken after completing this challenge.
+
+
+<details> 
+<summary> Explanation of exploit </summary>
+![image](https://github.com/user-attachments/assets/f293ce71-b9b9-4af9-aa7d-83f120bc171e)
+
+The line... `return render_template_string(f"""
+    <!doctype html>
+    <h1 style="font-size:100px;" align="center">
+        {request.form.get("content", "")}
+    </h1>
+""")`
+
+...Is vulnerable since the {request.form.get("content", "")} is unsantized and anything sent to it will can be evaluated on the server.
+
+</details>
 
 Sending: __`{{global_name.__class__.__mro__}}`__
 
