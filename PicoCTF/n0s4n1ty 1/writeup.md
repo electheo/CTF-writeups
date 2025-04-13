@@ -42,3 +42,21 @@ Sending filenmae: `<?php eval ("echo ".$REQUEST["uploads"].";"); ?>`
 This means that quotation marks are being replaced with "%22". This might mean that the filename we have sent is being parsed via rawurlencode() as per https://www.php.net/manual/en/function.rawurlencode.php which describes the function as:
 __"Returns a string in which all non-alphanumeric characters except -_.~ have been replaced with a percent (%) sign followed by two hex digits. This is the encoding described in » RFC 3986 for protecting literal characters from being interpreted as special URL delimiters, and for protecting URLs from being mangled by transmission media with character conversions (like some email systems)."__
 
+When I try to go the url after uploading my image... `http://standard-pizzas.picoctf.net:62426/uploads/%3C?php%20eval%20(%22echo%20%22.$REQUEST[%22uploads%22].%22;%22);%20?%3E`
+
+We get a URL not found error, but also the text: `Apache/2.4.54 (Debian) Server at standard-pizzas.picoctf.net Port 62426` which might be a clue as to the available vulnerabilties.
+
+After trying a few more injection types with the file name, I gave up and started prodding the other type of input santization - whether the file being uploaded is actually an image.
+
+I prompted chat GPT for a mockup html and JS injection payload to see whether this is an avenue I should pursue.
+
+Sending the following file and navigating to its path in the url...: 
+```
+<!-- test.html -->
+<script>alert('XSS via HTML file');</script>
+```
+- returns:
+![image](https://github.com/user-attachments/assets/c0b25a42-c7c4-4f6a-84d2-4ce213cd0cab)
+
+This shows that its possible to get new HTML and Javascript onto the server via the file upload.
+
