@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d419866d-6107-475a-ab0c-0fae5d35fdf1)<h1>nos4n1ty 1</h1>
+<h1>nos4n1ty 1</h1>
 
 From: https://play.picoctf.org/practice/challenge/482
 
