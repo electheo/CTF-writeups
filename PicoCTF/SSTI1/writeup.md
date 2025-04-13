@@ -37,9 +37,9 @@ Based on the error returned, i thought it might be possible that this applicatio
 
 To confirm server side execution ability, we sent {{7*7}} which resulted in the page showing me the numbers 49. This implies that anything we place within the double curly braces can be evaluated. 
 
-Following along with the portswigger article, and the indentify section, we determine that this is framework is likely using Jinja
+Following along with the portswigger article, and the indentify section, we determine that this is framework is likely using Jinja2 because "The payload {{7*'7'}} returns 49 in Twig and 7777777 in Jinja2."
 ![image](https://github.com/user-attachments/assets/1a2aee31-7607-4b5e-916c-16786617ba99)
-"The payload {{7*'7'}} returns 49 in Twig and 7777777 in Jinja2."
+
 
 Now that we know it is Jinja2, I found https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/ to be useful for specifics regarding exploitation of this framework. Similarly, the Jinja docs were useful for referencing what the OnSecurity aricle was discussing: https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment
 
