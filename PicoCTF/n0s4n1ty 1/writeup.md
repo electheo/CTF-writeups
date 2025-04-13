@@ -171,7 +171,7 @@ Linux Handbook: https://linuxhandbook.com/linux-file-permissions/
   - Guides for linux file structure and permissions
 
 ChatGPT: https://chatgpt.com/
-  - Review of JS code in footer, revealing potential avenues for exploitation
+  - Review of JS code in footer and creation of initial html payload to test remote execution, revealing potential avenues for exploitation
 
 
 
