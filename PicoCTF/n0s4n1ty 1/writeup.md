@@ -56,6 +56,7 @@ Sending the following file and navigating to its path in the url...:
 <script>alert('XSS via HTML file');</script>
 ```
 - returns:
+
 ![image](https://github.com/user-attachments/assets/c0b25a42-c7c4-4f6a-84d2-4ce213cd0cab)
 
 This shows that its possible to get new HTML and Javascript onto the server via the file upload.
@@ -82,7 +83,8 @@ $output = shell_exec('ls -la');
 echo "<pre>$output</pre>";
 ?>
 ```
-- returns: 
+- returns:
+
 ![image](https://github.com/user-attachments/assets/af4ae45e-da96-4134-ae48-688baec353a1)
 
 It seems that, I can execute shell code, and see list the files in the current directory.
@@ -97,12 +99,15 @@ echo "<pre>$output</pre>";
 However, this returns a blank page, how interesting...
 
 with only specify the / directory, I can see the file structure for the machine:
+
 ![image](https://github.com/user-attachments/assets/543f62ec-0f89-440f-86e3-709b57bde680)
 
 When sending the this command with `ls -la` command, we can see the priviliges for the different directories, notice that root doesn't have many permissions
+
 ![image](https://github.com/user-attachments/assets/f8f82b2b-abd2-4869-a107-506b34554c23)
 
 from: https://linuxhandbook.com/linux-file-permissions/ this means that only an administrator can view this directory:
+
 ![image](https://github.com/user-attachments/assets/eb1aabfa-1dc3-4636-9a92-c1d7aeb56c61)
 
 modifying the code to be:
@@ -113,6 +118,7 @@ echo "<pre>$output</pre>";
 ?>
 ```
 - returns:
+
 ![image](https://github.com/user-attachments/assets/22230c0f-b698-485f-9790-7de542fb6364)
 
 Cool! we can see the flag!
@@ -125,13 +131,35 @@ echo "<pre>$output</pre>";
 ?>
 ```
 returns:
+
 ![image](https://github.com/user-attachments/assets/72047e65-403e-4cd0-bc23-2453883970c7)
 
 __`picoCTF{wh47_c4n_u_d0_wPHP_d698d800}`__
 
 Whoopee!
 
+Applications used during CTF:
 
+- Kali Linux
+
+- Mozilla Firefox
+
+- Visual Studio Code
+
+
+Core sources of information:
+
+Imperva: https://www.imperva.com/learn/application-security/php-injection/
+  - Overview of PHP injection
+
+PHP: https://www.php.net/manual/en/function.shell-exec.php
+  - Documentation for shell_exec()
+
+Linux Handbook: https://linuxhandbook.com/linux-file-permissions/
+  - Guides for linux file structure and permissions
+
+ChatGPT: https://chatgpt.com/
+  - Review of JS code in footer, revealing potential avenues for exploitation
 
 
 
