@@ -19,6 +19,10 @@ In short,
 To interact with this instance, the explitable program's source code and binary can be downloaded from the PicoCTF, and when launching the instance, you will be able to interact wit the program via a netcat terminal.
 ![image](https://github.com/user-attachments/assets/34d62907-22e1-4644-9350-8ac882e2ebd9)
 
+When launching the program, the user is given the address of the main function, and is prompted for a memory address to jump to.
+![image](https://github.com/user-attachments/assets/da5e9f5d-8f2e-4374-8b5c-2ffb1360443f)
+
+
 <h2> Analysis of source code </h2>
 
 <details>
@@ -77,3 +81,4 @@ int main() {
 ```  
 </details>
 
+<h2></h2>
