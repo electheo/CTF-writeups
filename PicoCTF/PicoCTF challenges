@@ -19,3 +19,15 @@ Web exploitation involves exploiting web applications and services.
 <h2> General Skills </h2>
 
 <h2> Binary Exploitation </h2>
+Binary exploitation involves exploiting executable programs and binaries.
+<details> 
+<summary> 
+<h4>Completed challenges [1]: </h4>
+</summary>
+  
+<h4> <a href="/PicoCTF/PIE TIME/writeup.md">PIE TIME</a>  </h4>
+</details>
+
+
+
+
