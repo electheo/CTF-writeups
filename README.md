@@ -1,4 +1,4 @@
 # CTF-writeups
 CTF writeups
 
-<h1> <a href="PicoCTF/PicoCTF - Categories and Review.md"> PicoCTF </a> </h1>
+<h1> <a href="PicoCTF/PicoCTF Challenges.md"> PicoCTF </a> </h1>
