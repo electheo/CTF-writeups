@@ -23,7 +23,9 @@ To interact with this instance, the explitable program's source code and binary 
 
 <details>
 <summary>[C Source Code]</summary>
-__`#include <stdio.h>
+  
+```
+#include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <unistd.h>
@@ -71,7 +73,7 @@ int main() {
 
   void (*foo)(void) = (void (*)())val;
   foo();
-}`__
-  
+}
+```  
 </details>
 
