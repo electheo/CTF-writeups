@@ -18,7 +18,7 @@ After entering a string to the form, the website directs you to an announce page
 ![image](https://github.com/user-attachments/assets/b52c3e2b-6229-4f52-bb75-4f2cce7b377e)
 
 <details>
-<summary> CONTINUE - SPOILERS </summary>summary>
+<summary> CONTINUE - SPOILERS </summary>
 Directly changing your URL to this announce page doesn't yield results:
 ![image](https://github.com/user-attachments/assets/e3fa69cf-67f8-43e9-a89c-89bcbc10ebdc)
 
