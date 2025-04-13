@@ -138,6 +138,10 @@ __`picoCTF{wh47_c4n_u_d0_wPHP_d698d800}`__
 
 Whoopee!
 
+
+
+
+
 Applications used during CTF:
 
 - Kali Linux
