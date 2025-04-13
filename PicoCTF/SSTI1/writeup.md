@@ -217,11 +217,15 @@ Sending: __`{{app.__class__.__mro__[1].__subclasses__()[356](['cat', 'flag'], st
 ---------------------------------------------------------------------------------------------------------------------
 
 Applications used during CTF:
+
 -Kali Linux (OS)
+
 -Mozilla Firefox (Web Browser)
+
 -Visual Studio Code
 
 Core sources of information:
+
 Portswigger: https://portswigger.net/web-security/server-side-template-injection#constructing-a-server-side-template-injection-attack
   - Overview of Server Side Template Injection
 
