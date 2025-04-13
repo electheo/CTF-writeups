@@ -4,7 +4,7 @@
 Web exploitation involves exploiting web applications and services.
 <details> 
 <summary> 
-<h3>Completed challenges: </h3>
+<h4>Completed challenges: </h4>
 </summary>
   
 <h4> SSTI </h4>
