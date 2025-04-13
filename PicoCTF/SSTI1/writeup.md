@@ -48,7 +48,7 @@ This exploit relies on the fact the formatted strings can allow for the interpre
 See below a snippet of the code, taken after completing this challenge.
 
 <details> 
-<h2> <summary> Explanation of exploit </summary> </h2>
+<summary> <h2> Explanation of exploit </h2> </summary>
   
 ![image](https://github.com/user-attachments/assets/f293ce71-b9b9-4af9-aa7d-83f120bc171e)
 
