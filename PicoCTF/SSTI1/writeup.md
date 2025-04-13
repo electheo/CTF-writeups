@@ -20,6 +20,7 @@ After entering a string to the form, the website directs you to an announce page
 <details>
 <summary> CONTINUE - SPOILERS </summary>
 Directly changing your URL to this announce page doesn't yield results:
+  
 ![image](https://github.com/user-attachments/assets/e3fa69cf-67f8-43e9-a89c-89bcbc10ebdc)
 
 After some experimentation, I wasn't able to deduce whether this something SQL exploitable, and decided to take the hint from the PicoCTF instance. This revealed the exploit for this CTF is known as server-side-template injection.
@@ -27,6 +28,7 @@ After some experimentation, I wasn't able to deduce whether this something SQL e
 The portswigger article: https://portswigger.net/web-security/server-side-template-injection describes this explot as __"when an attacker is able to use native template syntax to inject a malicious payload into a template, which is then executed server-side."__
 
 After futher experimentation, and now understanding that string formatting is often performed using curly brackets {}, sending the server the a set of nested curly brackets {{}} resulted in an internal server error, error 500.
+
 ![image](https://github.com/user-attachments/assets/2b0066c4-0e89-49c9-b0a3-d1c87fede2b3)
 
 When placing any plaintext within these braces, the error dissapears and completely blank HTML page is returned when the form is executed.
