@@ -66,13 +66,21 @@ This shows that its possible to get new HTML and Javascript onto the server via 
 After some further experimentation, I created a .php file with the code `<?php phpinfo(); ?>`. When I then navigated to that page on the server, many details about the installation were revealed. Some interesting ones have been noted below:
 
 `System 	Linux challenge 6.8.0-1024-aws #26-Ubuntu SMP Tue Feb 18 17:22:37 UTC 2025 x86_64 `
+
 `PHP API 	20190902`
+
 `Apache Version 	Apache/2.4.54 (Debian)`
+
 `Server Administrator 	webmaster@localhost`
+
 `Server Root 	/etc/apache2`
+
 `PHP Version 	7.4.33`
+
 `cURL support 	enabled`
+
 `cURL Information 	7.74.0`
+
 `PWD 	/challenge`
 
 From https://www.php.net/manual/en/function.shell-exec.php I took an example for shell execution code and modified it to show all files in an active directory.
