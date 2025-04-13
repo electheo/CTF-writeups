@@ -107,3 +107,31 @@ Which will open and print the flag
 
 <h2> Finding the memory address of the win function </h2>
 
+The GBU debugger (GDB) __"is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, Assembly, C, C++, D, Fortran, Haskell, Go, Objective-C, OpenCL C, Modula-2, Pascal, Rust, and partially others. It detects problems in a program while letting it run and allows users to examine different registers."__
+
+We can use this program to analyse the running code. We can run the `info func` command in GDB to expose all of the memory addresses of functions loaded into memory during that instance of the programs execution.
+![image](https://github.com/user-attachments/assets/e999ebd2-6408-4d72-bc12-f27064fdecbb)
+
+Notice, we can see the win function here at memory address: 0x00005555555552a7
+
+Also, during execution of the program, we were told the address of main: 0x000055555555533d
+
+While PIE will randomise the start of these addresses, the relational distance between each memory address for the functions will remain the same. This means that we can deduce the offset in bytes between these two addresses.
+
+Python can be used to compute this:
+
+![image](https://github.com/user-attachments/assets/7231f6dd-ad49-40df-a025-97ed69f24b1f)
+
+<h2> Exploiting the program </h2>
+
+Now that we we have calculated the offset, we can run the program again and retrieve the new main() memory address which is conveniently leaked for us. We can then plug this into our Python program to retrieve the memory address of win since we know the offset to this function from previous calculations.
+![image](https://github.com/user-attachments/assets/a96a9c6c-702a-48bd-b657-abb514d42df3)
+
+![image](https://github.com/user-attachments/assets/2356a256-2a44-4de0-b895-5b359fa5d302)
+
+Hooray!
+
+`picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_a267144a}`
+
+Resources used:
+
