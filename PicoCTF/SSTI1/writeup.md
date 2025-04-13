@@ -33,7 +33,7 @@ After futher experimentation, and now understanding that string formatting is of
 
 When placing any plaintext within these braces, the error dissapears and completely blank HTML page is returned when the form is executed.
 
-Based on the error returned, it might be possible that this application is a Flask application, see: https://www.digitalocean.com/community/tutorials/how-to-handle-errors-in-a-flask-application.
+Based on the error returned, i thought it might be possible that this application is a Flask application, see: https://www.digitalocean.com/community/tutorials/how-to-handle-errors-in-a-flask-application based searching the error text in Google.
 
 To confirm server side execution ability, we sent {{7*7}} which resulted in the page showing me the numbers 49. This implies that anything we place within the double curly braces can be evaluated. 
 
