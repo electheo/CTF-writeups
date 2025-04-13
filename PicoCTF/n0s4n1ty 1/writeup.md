@@ -1,4 +1,4 @@
-<h1>nos4n1ty 1</h1>
+<h1>n0s4n1ty 1</h1>
 
 From: https://play.picoctf.org/practice/challenge/482
 
