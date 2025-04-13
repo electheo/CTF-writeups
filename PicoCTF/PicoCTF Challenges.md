@@ -8,12 +8,12 @@ Web exploitation involves exploiting web applications and services.
 </summary>
   
 <h4> <a href="/PicoCTF/SSTI1/writeup.md">SSTI</a>  </h4>
+<h4> <a href="/PicoCTF/n0s4n1ty 1/writeup.md">n0s4n1ty 1</a>  </h4>
+
 </details>
 
-</summary>
-  
-<h4> <a href="/PicoCTF/n0s4n1ty 1/writeup.md">n0s4n1ty 1</a>  </h4>
-</details>
+
+
 
 
 <h2> Cryptography </h2>
