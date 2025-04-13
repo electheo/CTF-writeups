@@ -135,28 +135,20 @@ Hooray!
 __`picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_a267144a}`__
 
 Applications used during CTF:
-
 -Kali Linux (OS)
-
 -Mozilla Firefox (Web Browser)
-
 -Visual Studio Code
-
 -Python3
-
 -GNU's GDB
 
 Core sources of information:
 
 James Lyne's https://www.youtube.com/watch?v=V9lMxx3iFWU
-
   - Explanation of debugging and GDB analysis
-  - 
+
 MIT GDB documentation https://web.mit.edu/gnu/doc/html/gdb_10.html
-
   - General overview of GDU usage and functionality
-  - 
+    
 ChatGPT https://chatgpt.com/
-
   - Assistance with formatting additions and subtractions of byte strings in Python
 
