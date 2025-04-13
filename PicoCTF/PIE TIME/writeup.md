@@ -123,7 +123,7 @@ Python can be used to compute this:
 
 ![image](https://github.com/user-attachments/assets/7231f6dd-ad49-40df-a025-97ed69f24b1f)
 
-<h2> Exploiting the program </h2>
+<h2> Win </h2>
 
 Now that we we have calculated the offset, we can run the program again and retrieve the new main() memory address which is conveniently leaked for us. We can then plug this into our Python program to retrieve the memory address of win since we know the offset to this function from previous calculations.
 ![image](https://github.com/user-attachments/assets/a96a9c6c-702a-48bd-b657-abb514d42df3)
@@ -134,12 +134,14 @@ Hooray!
 
 __`picoCTF{b4s1c_p051t10n_1nd3p3nd3nc3_a267144a}`__
 
+<h2>Tech and resources</h2>
+
 Applications used during CTF:
--Kali Linux (OS)
--Mozilla Firefox (Web Browser)
--Visual Studio Code
--Python3
--GNU's GDB
+- Kali Linux (OS)
+- Mozilla Firefox (Web Browser)
+- Visual Studio Code
+- Python3
+- GNU's GDB
 
 Core sources of information:
 
