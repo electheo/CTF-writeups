@@ -1,10 +1,14 @@
 <h1> PicoCTF categories and review </h1>
 
 <h2> Web Exploitation </h2>
-
-<h3> Completed challenges: </h3>
-
+Web exploitation involves exploiting web applications and services.
+<details> 
+<summary> 
+<h3>Completed challenges: </h3>
+</summary>
+  
 <h4> SSTI </h4>
+</details>
 
 <h2> Cryptography </h2>
 
