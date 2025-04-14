@@ -21,6 +21,13 @@ Cryptography involves encoding and decoding data through various processes and a
 </details>
 
 <h2> Reverse Engineering </h2>
+Reverse engingeering involves the analysis, debugging, and exploitaion of code.
+<details> 
+<summary> 
+<h4>Completed challenges [1]: </h4>
+</summary>
+<h4> <a href="/PicoCTF/Flag Hunters/writeup.md">Flag Hunters</a>  </h4>
+</details>
 
 <h2> Forensics </h2>
 
