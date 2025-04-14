@@ -12,7 +12,7 @@ Web exploitation involves exploiting web applications and services.
 </details>
 
 <h2> Cryptography </h2>
-Cryptography involves encoding and decoding data through various processes and algorithms
+Cryptography involves encoding and decoding data through various processes and algorithms.
 <details> 
 <summary> 
 <h4>Completed challenges [1]: </h4>
