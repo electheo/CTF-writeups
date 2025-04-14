@@ -732,7 +732,7 @@ If you think you need help by a real human come to the hashcat Discord:
 ```
 </details>
 
-<h2>Experimentation</h2>
+<h2>Experimentation and cracking</h2>
 
 To start off, I'm going to try a basic hash crack for MD5. I'll put my hash in a file called hash.txt
 ![image](https://github.com/user-attachments/assets/6cf99cb5-a66e-4ab3-9a4b-2c5bc6e96cee)
@@ -780,7 +780,28 @@ Great! `916e8c4f79b25028c9e467f1eb8eee6d6bbdff965f9928310ad30a8d88697745:qwerty0
 
 `picoCTF{UseStr0nG_h@shEs_&PaSswDs!_dcd6135e}`
 
+---
 
+Applications used during CTF:
+
+- Kali Linux (OS)
+  
+- HashCat application
+  
+- Rockyou wordlist
+
+Core sources of information:
+
+HashCat: 
+
+Stackoverflow: https://stackoverflow.com/questions/17189237/how-can-i-write-and-append-using-echo-command-to-a-file
+  - Writing a file from the CLI using echo and '>'.
+
+HashCat: https://hashcat.net/hashcat/
+  - General overview of hashcat functionality and usage
+
+TechTarget: https://www.techtarget.com/searchdatamanagement/definition/hashing
+  - Overview of what hashing is
 
 
 
