@@ -12,6 +12,12 @@ Web exploitation involves exploiting web applications and services.
 </details>
 
 <h2> Cryptography </h2>
+<details> 
+<summary> 
+<h4>Completed challenges [1]: </h4>
+</summary>
+<h4> <a href="/PicoCTF/hashcrack/writeup.md">hashcrack</a>  </h4>
+</details>
 
 <h2> Reverse Engineering </h2>
 
