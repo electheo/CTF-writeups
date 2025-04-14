@@ -148,3 +148,6 @@ Core sources of information:
 
 IBM: https://www.ibm.com/docs/ja/sdk-java-technology/8?topic=dumps-heap-dump
   - Infromation regarding heap dumps
+
+Exploit DB: https://www.exploit-db.com/docs/50459,
+  - Information regarding the exploitation of heap dumps
