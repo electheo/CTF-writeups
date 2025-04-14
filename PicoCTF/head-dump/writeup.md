@@ -156,3 +156,6 @@ IBM: https://www.ibm.com/docs/ja/sdk-java-technology/8?topic=dumps-heap-dump
 
 Exploit DB: https://www.exploit-db.com/docs/50459,
   - Information regarding the exploitation of heap dumps
+
+ChatGPT: https://chatgpt.com
+  - Analysis of heap-dump format to locate what software was used to create it.
