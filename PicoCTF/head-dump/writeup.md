@@ -122,19 +122,29 @@ Running the API command again, we can see some details regarding the request, bu
 
 Entering this URL causes the heap dump file to download immediately.
 
-Thats it, I'm taking a hint :)
 
+<h2> Win </h2>
 
+Unfortunately, this isn't some flash trick or new learning. It feels more like a cheese, despite it being the main way to solve this challenge. The flag can be retrieved by either searching the head dump file or using the linux tool grep.
+![image](https://github.com/user-attachments/assets/cd440bc8-241f-4ece-8799-f85c3750e2c1)
 
+__`picoCTF{Pat!3nt_15_Th3_K3y_8635db4b}`__
 
+<h2> What can we take away from this </h2>
 
+- Try the simple things first. Sometimes the answer can be right in front of you and you miss it by investigating more complicated solutions
+  
+- Java heap dumps can reveal sensistive information about processes running on the system. In a real-world application, it might be possible to retrieve secret keys and login credentials, allowing attackers to bypass security measures on a web application. See Mohamed Elhadad's article https://elhadadx.medium.com/exploiting-an-exposed-swagger-file-to-achieve-rce-cceb4d1f8ad0 for an example of this.
 
+---
 
+Applications used during CTF:
 
+-Kali Linux (OS)
 
+-Mozilla Firefox (Web Browser)
 
-Resouces used:
+Core sources of information:
 
 IBM: https://www.ibm.com/docs/ja/sdk-java-technology/8?topic=dumps-heap-dump
   - Infromation regarding heap dumps
-
