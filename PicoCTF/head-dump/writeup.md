@@ -11,20 +11,25 @@ Tags: Easy, Web Exploitation, picoCTF 2025, browser_webshell_solvable
 
 <h2>General Functionality</h2>
 
-When first loading into the instance, you are shown what seems to be blogging website:
+When first loading into the instance, you are shown what seems to be a blogging website:
 ![image](https://github.com/user-attachments/assets/4acad71d-4b8b-417e-8612-11cf6e90e1e4)
 
-Clicking around on the page, most links seem to redirect to the home page. Most except for the swagger /api-docs/ page:
+After clicking around on the page, I discovered that most links seem to redirect to the home page except for the swagger /api-docs/ link which directs to an api-documentation page:
 ![image](https://github.com/user-attachments/assets/90c4819e-0b46-4975-bff7-d79dc55d69ec)
 
-I think that I would be interested in seeing an output from the `/services`, as well as the `/heapdump` apis. Trying these out with the pre-made test/execute system yields the following results:
+Initially, I think that I would be interested in seeing an output from the `/services`, as well as the `/heapdump` apis. Trying these out with the pre-made test/execute system yields the following results:
 ![image](https://github.com/user-attachments/assets/52d2e3db-d829-40d7-8994-bce07239d10b)
 
 ![image](https://github.com/user-attachments/assets/5c5f90c9-f7ac-42d7-858c-3613265dde03)
 
 <h2>Experimentation and learning</h2>
 
-Within the output of the headdump API, there is the option to download the returned value. When viewing the file, we see that it is extremely long and cotains sections which are lists of numbers as well as sections that have a number associated with some sort of function.
+Within the output of the headdump API on the website we have the option to download the returned output which is a large ascii document. When viewing the file, we see that it is extremely long and contains sections which are lists of numbers as well as sections that have a number associated with some sort of function.
+
+After completing the challenge I prompted ChatGPT to help identify this file and it was referred to as: 
+__"JavaScript/Node.js V8 internals—specifically, heap snapshot-style output like what you’d get from DevTools, Chrome's V8 engine, or --heap-prof.__"
+More information about creating the heapdumps with this framework can be found here: https://nodejs.org/api/v8.html#v8writeheapsnapshotfilenameoptions and here: https://nodejs.org/en/learn/diagnostics/memory/using-heap-snapshot/
+
 
 Excerpt of first section of the file: 
 
