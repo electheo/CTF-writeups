@@ -731,3 +731,59 @@ If you think you need help by a real human come to the hashcat Discord:
 
 ```
 </details>
+
+<h2>Experimentation</h2>
+
+To start off, I'm going to try a basic hash crack for MD5. I'll put my hash in a file called hash.txt
+![image](https://github.com/user-attachments/assets/6cf99cb5-a66e-4ab3-9a4b-2c5bc6e96cee)
+
+I'll also set myself up with some wordlsits - these are sometimes referred to as rainbow tables and contain common passwords and their corresponding hashes.
+![image](https://github.com/user-attachments/assets/f10a6a1a-95b2-4c2f-b3de-f8834597d828)
+
+Next, I'll try using HashCat and some common hashing types. I'll send the following command to try cracking md5:
+
+`hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt`
+
+
+
+![image](https://github.com/user-attachments/assets/1899a5bb-3998-4ba3-8c2a-bab977b217e1)
+
+The output from my first hashcrack test was successful!
+
+`482c811da5d5b4bc6d497ffa98491e38:password123`
+
+But there is more!
+![image](https://github.com/user-attachments/assets/2b035592-e3b8-4fec-be0b-b8dcd6612449)
+
+I'll try the same hash cracking command as before, but I suspect it may not work and that I'll need to use a new algorithm.
+
+Hmmm, it seems that the hash is too long - maybe this means I need to change the hash type I am testing for.
+![image](https://github.com/user-attachments/assets/2409d670-e8db-44d5-9f28-c91bf0fe541d)
+
+Lets try SHA1 next with `hashcat -m 100 -a 0 hash.txt /usr/share/wordlists/rockyou.txt`
+
+![image](https://github.com/user-attachments/assets/0b3a1aff-e25d-485d-be09-dc8d3d433cf5)
+
+Gotcha! `b7a875fc1ea228b9061041b7cec4bd3c52ab3ce3:letmein`
+
+Ok, next hash is `916e8c4f79b25028c9e467f1eb8eee6d6bbdff965f9928310ad30a8d88697745`
+
+This is longer than the first and second hash - so I'm thinking it will be a different algorthim again.
+
+![image](https://github.com/user-attachments/assets/ea67188a-df5b-4cf8-b28c-08e1b22b423d)
+
+as expected, the has is rejected for this algorithm... Lets try SHA256 next with `hashcat -m 1400 -a 0 hash3.txt /usr/share/wordlists/rockyou.txt`
+
+![image](https://github.com/user-attachments/assets/c4d470bd-1304-4d2c-9fc2-784d0c754d23)
+
+Great! `916e8c4f79b25028c9e467f1eb8eee6d6bbdff965f9928310ad30a8d88697745:qwerty098`
+
+`picoCTF{UseStr0nG_h@shEs_&PaSswDs!_dcd6135e}`
+
+
+
+
+
+
+
+
