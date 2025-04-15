@@ -1,7 +1,9 @@
 <h1>FANTASY CTF</h1>
 
-From: https://play.picoctf.org/practice/challenge/471
+From: https://play.picoctf.org/practice/challenge/47
+
 Author: syreal
+
 Description: Play this short game to get familiar with terminal applications and some of the most important rules in scope for picoCTF.
 
 Tags: Easy, General Skills, picoCTF 2025, browser_webshell_solvable
