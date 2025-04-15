@@ -36,7 +36,7 @@ Reverse engingeering involves the analysis, debugging, and exploitaion of code.
 <summary> 
 <h4>Completed challenges [1]: </h4>
 </summary>
-<h4> <a href="/PicoCTF/FANTASY CTF/writeup.md">Flag Hunters</a>  </h4>
+<h4> <a href="/PicoCTF/FANTASY CTF/writeup.md">FANTASY CTF</a>  </h4>
 </details>
 <h2> Binary Exploitation </h2>
 Binary exploitation involves exploiting executable programs and binaries.
