@@ -74,6 +74,12 @@ KeyLength = 1024 bits
 
 IF we can reverse the `inverse(e, (p-1)*(q-1))` function then we can retrieve the private key.
 
-Then, I imagine that we can use this private key to decrypt the message by inverting the `pow(bytes_to_long(m.encode('utf-8')), e, N)`. Without doing any reading on this, I'm not sure where to start... so lets get reading!
+Then, I imagine that we can use this private key to decrypt the message by inverting the `pow(bytes_to_long(m.encode('utf-8')), e, N)`. Without doing any reading on this, I'm not sure where to start in terms of reverse the encryption function... so lets get reading!
+
+First however, lets install some of these encryption libraries:
+
+`pip install pycryptodome` and `pip install crypto`.
+![image](https://github.com/user-attachments/assets/485516da-0f39-4d80-9454-e899d04ec5f3)
+
 
 
