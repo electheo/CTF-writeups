@@ -107,7 +107,11 @@ Next step:
 - Create python program to break primes using Fermats factorisation algorithm. https://en.wikipedia.org/wiki/Fermat's_factorization_method
 ![image](https://github.com/user-attachments/assets/5603ef36-beb4-4087-bfdd-cacb46f05148)
 
-Hold the horses, I've been overthinking everything. This N value is even, and we can prove that for all integers (except for 2) an odd integer multiplied by an odd integer is odd.
+Hold your horses, I've been overthinking everything.
+![image](https://github.com/user-attachments/assets/ae2e8952-201a-402a-adfc-611feef0d209)
+
+
+This N value is even, and we can prove that for all integers (except for 2) an odd integer multiplied by an odd integer is odd.
 
 IE, for all x, y in the integers, suppose x and y are odd. Thus x = 2k + 1 and y = 2m + 1 for some k, m in the integers. 
 
