@@ -107,4 +107,15 @@ Next step:
 - Create python program to break primes using Fermats factorisation algorithm. https://en.wikipedia.org/wiki/Fermat's_factorization_method
 ![image](https://github.com/user-attachments/assets/5603ef36-beb4-4087-bfdd-cacb46f05148)
 
+Hold the horses, I've been overthinking everything. This N value is even, and we can prove that for all integers (except for 2) an odd integer multiplied by an odd integer is odd.
+IE, for all x, y in the integers, suppose x and y are odd. Thus x = 2k + 1 and y = 2m + 1 for some k, m in the integers. 
+Therefore the product x*y is equivalent to (2k+1)(2m+1) = 4km + 2k + 2m + 1 = 2(km + k + m) + 1
+Since (km + k + m) will be in the integers, this shows thats any product of odd integers is odd.
+
+Thus, for the N value to be even, this means that one of the p or q primes must be even. And there is only one even prime number, 2.
+
+Therefore are p and q values are p = 2 and q = N // 2.
+p = 2
+q = 10610815478988377107485391923871251032608406419339901866361526050846032827401417964369932288270682521416416166573577264452691248122611566662197515151696473
+
 
