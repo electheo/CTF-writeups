@@ -126,7 +126,7 @@ q = 1061081547898837710748539192387125103260840641933990186636152605084603282740
 Next step:
 Recreate the decryption process by finding the private key.
 
-The following code demonstrates the elements of the RSA alogorithm by encrypting and decrypting the number 123456789:
+The following code annotates the elements of RSA encryption and and demonstrates the encryption and decryption of the number 123456789:
 
 ```
 from Crypto.Util.number import bytes_to_long, inverse
@@ -163,3 +163,21 @@ decrypted_m = pow(encrypted_m, d, N)
 print(f"Returned decrypted value = {decrypted_m}")
 # Prints 123456789
 ```
+
+When plugging my cipher text into the decoding stage of this code, I receive the integer 3030612722376619015339251852200174143198160267119133805409341331747709
+
+Since this is an integer I will need to perform conversions on it to read it as a string and retrieve the flag. Generally when encrypting text the following processes are applied:
+- The text is converted to hexadecimal byte sequences based on the character encoding (typically UTF-8).
+- This sequence of hexadecimal numbers to combined to create one very large sequence of bits which can be represented as a single decimal.
+
+Therefore in order to undo this encoding, we need to define a number of bytes we will return from the sequence. Then, we can use the python integer method .to_bytes() to convert an integer into a sequence of `x` bytes in the big-endian format. Lastly, now that we have our bytes sequence. We can decode these bytes using pythons bytes .decode() method and specifying the characterset utf-8.
+
+```
+def decimal_to_ascii(decimal_input: int) -> str:
+    byte_length = (decimal_input.bit_length() + 7) // 8
+    byte_sequence = decimal_input.to_bytes(byte_length, "big")
+    output = byte_sequence.decode("utf-8")
+    return output
+```
+
+And there we have it: `picoCTF{tw0_1$_pr!m33486c703}`
