@@ -81,5 +81,30 @@ First however, lets install some of these encryption libraries:
 `pip install pycryptodome` and `pip install crypto`.
 ![image](https://github.com/user-attachments/assets/485516da-0f39-4d80-9454-e899d04ec5f3)
 
+Key takeaways and notes from: **How to break RSA encryption | Computerphile video:** https://youtu.be/-ShwJqAalOk
+<details>
+  <summary> Notes taken during video
+  </summary>
+  
+- Sign something using private key (d) (hiddne information)
+- Verify the signiture using the public key (e, N) (public information).
+- E is usually 65537
+- N is calculating p * q which are prime numbers that are randomly generated. N can be multiple thousand bits long.
+- Its possible that weak values for p and q can be found when a bad library is used to generate these random numbers
+- Once we know p and q, we can calculate Euler's Totient which is = (p-1) * (q-1).
+- e * d is congruent to 1 (mod totient(N)
+- We want to find some number which when we multiply by e we get an intermediate value which when we reduce by the mod we get 1 again. If we find this then we would have found the private key.
+- There exist other ways to calcualte the totient of N, IE brute foce, but this is unrealistic computationally.
+- The fastest alternative is to factor N into p and q.
+- Fermats factorisation algorithm can be used to break down p and q.
+- N = a^2 - b^2 = (a+b)(a-b)
+- b^2 = a^2 - N
+- Let then test the sqrt(all integers of a squared minus N) the result when sqrt'd needs to be an integer and if it isn't we test the next integer (+1)
+- Once you discover 'a' and 'b', you can do (a+b)(a-b) to get p and q which can then be used to calculate the private key.
+</details>
+
+Next step:
+- Create python program to break primes using Fermats factorisation algorithm. https://en.wikipedia.org/wiki/Fermat's_factorization_method
+![image](https://github.com/user-attachments/assets/5603ef36-beb4-4087-bfdd-cacb46f05148)
 
 
