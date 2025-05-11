@@ -168,7 +168,7 @@ When plugging my cipher text into the decoding stage of this code, I receive the
 
 Since this is an integer I will need to perform conversions on it to read it as a string and retrieve the flag. Generally when encrypting text the following processes are applied:
 - The text is converted to hexadecimal byte sequences based on the character encoding (typically UTF-8).
-- This sequence of hexadecimal numbers to combined to create one very large sequence of bits which can be represented as a single decimal.
+- This sequence of hexadecimal numbers is combined by the computer to create one very large sequence of bits which can be represented as a single decimal. I believe this is what we're seeing.
 
 Therefore in order to undo this encoding, we need to define a number of bytes we will return from the sequence. Then, we can use the python integer method .to_bytes() to convert an integer into a sequence of `x` bytes in the big-endian format. Lastly, now that we have our bytes sequence. We can decode these bytes using pythons bytes .decode() method and specifying the characterset utf-8.
 
