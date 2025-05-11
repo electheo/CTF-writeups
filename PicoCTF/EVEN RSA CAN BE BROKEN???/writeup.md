@@ -108,10 +108,13 @@ Next step:
 ![image](https://github.com/user-attachments/assets/5603ef36-beb4-4087-bfdd-cacb46f05148)
 
 Hold your horses, I've been overthinking everything.
+
 ![image](https://github.com/user-attachments/assets/ae2e8952-201a-402a-adfc-611feef0d209)
 
 
-This N value is even, and we can prove that for all integers (except for 2) an odd integer multiplied by an odd integer is odd.
+<h2>The correct approach</h2>
+
+This N value is even, and we can prove that for all integers, an odd integer multiplied by an odd integer is odd.
 
 IE, for all x, y in the integers, suppose x and y are odd. Thus x = 2k + 1 and y = 2m + 1 for some k, m in the integers. 
 
@@ -121,7 +124,7 @@ Since (km + k + m) will be in the integers, this shows thats any product of odd 
 
 Thus, for the N value to be even, this means that one of the p or q primes must be even. And there is only one even prime number, 2.
 
-Therefore are p and q values are p = 2 and q = N // 2.
+Therefore the p and q values are p = 2 and q = N // 2.
 ```
 p = 2
 q = 10610815478988377107485391923871251032608406419339901866361526050846032827401417964369932288270682521416416166573577264452691248122611566662197515151696473
@@ -185,3 +188,34 @@ def decimal_to_ascii(decimal_input: int) -> str:
 ```
 
 And there we have it: `picoCTF{tw0_1$_pr!m33486c703}`
+
+Whoopee!
+
+
+
+
+
+Applications used during CTF:
+
+- Kali Linux
+
+- Mozilla Firefox
+
+- Visual Studio Code
+
+- Python 3.13 and Pycryptodome utilities
+
+
+Core sources of information:
+
+Wikipedia: https://en.wikipedia.org/wiki/Fermat's_factorization_method
+  - Fermats Factorisation method
+
+Youtube: https://youtu.be/-ShwJqAalOk
+  - ComputerPhile | How to break RSA encryption
+    
+ChatGPT: https://chatgpt.com/
+  - Clarification of the native pow() function and byte arrays.
+
+Drexel RSA calculator: https://www.cs.drexel.edu/~popyack/IntroCS/HW/RSAWorksheet.html
+  - Clarification regarding the mathematics and sequence used to derive keys, encrypt using powers+mod and decrypt using power+mod
