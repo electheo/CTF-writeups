@@ -123,3 +123,43 @@ p = 2
 q = 10610815478988377107485391923871251032608406419339901866361526050846032827401417964369932288270682521416416166573577264452691248122611566662197515151696473
 ```
 
+Next step:
+Recreate the decryption process by finding the private key.
+
+The following code demonstrates the elements of the RSA alogorithm by encrypting and decrypting the number 123456789:
+
+```
+from Crypto.Util.number import bytes_to_long, inverse
+
+# e is smaller than the totient(n) and is comprime with it, public information
+e = 65537
+
+#  p is a random prime number, private information
+p = 10610815478988377107485391923871251032608406419339901866361526050846032827401417964369932288270682521416416166573577264452691248122611566662197515151696473
+
+# q is a random prime number, private information
+q = 2
+
+# N is the product of p and q. public information
+N = p * q
+
+# d is the private key derived from the inverse of e mod totient(n), private information
+d = inverse(e, (p-1)*(q-1))
+
+publickey = (N, e)
+privatekey = (N, d)
+
+# example message
+message = 123456789
+print(f"Encrypting = {message}")
+
+# pow function returns message^e mod N. Notice, we encrypt with the public key (N, e)
+encrypted_m = pow(message, e, N)
+print(f"New encryption value = {encrypted_m}")
+
+# notice we decrypt with the private key (N, d)
+decrypted_m = pow(encrypted_m, d, N)
+
+print(f"Returned decrypted value = {decrypted_m}")
+# Prints 123456789
+```
