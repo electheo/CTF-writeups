@@ -1,6 +1,6 @@
 <h1>DISKO 1</h1>
 
-Author: 
+Author: Darkaicg492
 
 <img width="631" height="522" alt="image" src="https://github.com/user-attachments/assets/c7d0b544-8777-4afb-9b2d-44443285ceca" />
 
