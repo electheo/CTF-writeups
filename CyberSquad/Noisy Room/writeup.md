@@ -20,8 +20,11 @@ Audio files represented digitally are a chronigical sequence of negative and pos
 <p></p>
 Since we know adding amplitudes results in the sum of these waveforms. Consider adding two waves where in some segments a positive and negative amplitude are added together. The resulting waveform will be closer to 0, meaning that the reproduced sound is quieter.
 
+<img width="675" height="539" alt="image" src="https://github.com/user-attachments/assets/93870bbf-7a15-4e8a-9438-db59876928ee" />
+
+
 <h2>Why is lossless important</h2>
-The file type provided is intentionally .WAV because this allows the series of amplitude values (constituting the audio file) to be accurately stored. If .MP3 or another compressed audio format was chosen, compression artifacts would taint the signal and make it far more difficult to phase cancel components of the source signal. 
+The file type provided is intentionally .WAV because this allows the series of amplitude values (constituting the audio file) to be accurately stored. If .MP3 or another compressed audio format was chosen, compression artifacts would taint the signal and make it far more difficult to phase cancel components of the source signal.
 
 <h2>What is phase cancellation?</h2>
 Consider a crude waveform which is represented by the following sequence of amplitudes:
@@ -44,6 +47,9 @@ Notice what happens when we combine the flipped and unflipped sequences together
 
 ...this represents complete silence.
 
+<img width="745" height="362" alt="image" src="https://github.com/user-attachments/assets/f4653540-f4ad-4005-94eb-8bcae4bc6e35" />
+
+
 <h2>Completing the challenge</h2>
 To complete this challenge, audio editing software is required. The simplest free tool widely available for this task is Audacity which can be downloaded here: https://www.audacityteam.org/download/#
 
@@ -53,7 +59,13 @@ Start by downloading the required source files and extracting these access each 
 
 Import these into Audacity so that they all play at the same time.
 
+<img width="1129" height="1035" alt="image" src="https://github.com/user-attachments/assets/1e408b7f-8060-4a03-8b51-b064e982c45c" />
+
+
 Perform a polarity inversion on all of the tracks except for "Track2.wav". In Audacity, this is possible by selecting the tracks you wish to modify and going to (Effect->Special->Invert).
+
+<img width="1166" height="884" alt="image" src="https://github.com/user-attachments/assets/b1e69537-460e-4172-b147-55d135d55f75" />
+
 
 Play the audio and listen to see whether these inverted tracks are being subtracted from the summed "Track2". If successful you should be able to hear the sequence of letters for the flag.
 
