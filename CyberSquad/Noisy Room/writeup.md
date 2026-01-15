@@ -72,5 +72,12 @@ Play the audio and listen to see whether these inverted tracks are being subtrac
 [Optional], you may wish to export this cleaned audio file, reimport it  and then apply the Audacity effect (Pitch and Tempo->Sliding stretch) to slow down the sound and better hear the sequence.
 
 
+<h2>Winner winner</h2>
 
+Congratulations you found the flag!
+
+<details>
+<summary> SPOILERS </summary>
+flag{welldoneflippedpolarity}
+</details>
 
