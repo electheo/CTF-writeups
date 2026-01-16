@@ -15,12 +15,13 @@ Tags: Easy, Miscellaneous, UQ Cyber Squad
 The user is prompted to download a ZIP file which contains lossless .WAV audio files. From these files it is possible to retrieve the flag.
 
 <h2>Understanding audio wave summing</h2>
-Audio files represented digitally are a chronigical sequence of negative and positive amplitude instructions which when parsed via a speaker, generate air waves that we can hear as sound. For multiple sounds to be played simultaneously from a single speaker, these sounds need to be added together, combining the amplitudes of each source for each moment in time. The audio file titled "Track2.wav" is the sum of all source "Tracks" including the missing "Track1-002.wave" which contains the flag.
+Audio files represented digitally are a chronological sequence of negative and positive amplitude instructions which when parsed via a speaker, generate air waves that we can hear as sound. For multiple sounds to be played simultaneously from a single speaker, these sounds need to be added together, combining the amplitudes of each source for each moment in time. The audio file titled "Track2.wav" is the sum of all source "Tracks" including the missing "Track1-002.wave" which contains the flag.
 
 <p></p>
 Since we know adding amplitudes results in the sum of these waveforms. Consider adding two waves where in some segments a positive and negative amplitude are added together. The resulting waveform will be closer to 0, meaning that the reproduced sound is quieter.
 
 <img width="675" height="539" alt="image" src="https://github.com/user-attachments/assets/93870bbf-7a15-4e8a-9438-db59876928ee" />
+Source: http://musicweb.ucsd.edu/~trsmyth/addSynth171/Adding_Sinusoids_at.html
 
 
 <h2>Why is lossless important</h2>
@@ -39,7 +40,7 @@ We can take this waveform and invert it by multiplying all values by -1 and givi
 
 <b>(-1, 0, 1, 0, -1, 0, 1, 0)</b>
 
-This invertion is known as flipping the polarity of the waveform and if we were to listen to the audio after it has been flipped (assuming it is not combining with any other sounds), we wouldn't be able to discern any difference from the original.
+This invertion is known as flipping the polarity of the waveform and if we were to listen to the audio after it has been flipped (assuming it was played in isolation from other sounds), we wouldn't be able to discern any difference from the original.
 
 Notice what happens when we combine the flipped and unflipped sequences together. The resulting sequence is:
 
@@ -48,14 +49,14 @@ Notice what happens when we combine the flipped and unflipped sequences together
 ...this represents complete silence.
 
 <img width="745" height="362" alt="image" src="https://github.com/user-attachments/assets/f4653540-f4ad-4005-94eb-8bcae4bc6e35" />
-
+Source: https://rode.com/en-lv/about/news-info/stereo-microphone-techniques
 
 <h2>Completing the challenge</h2>
 To complete this challenge, audio editing software is required. The simplest free tool widely available for this task is Audacity which can be downloaded here: https://www.audacityteam.org/download/#
 
 <p></p>
 
-Start by downloading the required source files and extracting these access each .WAV file individually.
+Start by downloading the required source files and extracting each .WAV file individually.
 
 Import these into Audacity so that they all play at the same time.
 
